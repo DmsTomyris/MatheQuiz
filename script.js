@@ -25,12 +25,15 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
     
     let currentTaskIndex = 0;
+    let currentLevel = 1;
 
     function loadTask() {
         const task = tasks[currentTaskIndex];
-        document.querySelector('p').textContent = task.question; // Aktualisiert die Frage im HTML
+        document.getElementById('task').textContent = task.question; // Aktualisiert die Frage im HTML
         document.getElementById('answer').value = ''; // Setzt das Eingabefeld zurück
         document.getElementById('result').textContent = ''; // Setzt das Ergebnis zurück
+        document.getElementById('taskNumber').textContent = `Aufgabe: ${currentTaskIndex + 1} von ${tasks.length}`; // Aktualisiert die Aufgabenanzahl
+        document.getElementById('level').textContent = `Level: ${currentLevel}`; // Aktualisiert das Level
     }
 
     document.getElementById('submit').addEventListener('click', function() {
@@ -48,6 +51,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Nächste Aufgabe laden
         currentTaskIndex++;
+        if (currentTaskIndex % 5 === 0) {
+            currentLevel++; // Erhöht das Level alle 5 Aufgaben
+        }
         if (currentTaskIndex < tasks.length) {
             loadTask(); // Lädt die nächste Aufgabe
         } else {
