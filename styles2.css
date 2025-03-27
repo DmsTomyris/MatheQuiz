@@ -8,7 +8,7 @@ body {
 
 #infoBox {
     position: absolute;
-    bottom: 20px;
+    top: 20px;
     right: 20px;
     background-color: white;
     border: 1px solid #ccc;
@@ -21,7 +21,7 @@ body {
 
 #scoreboard {
     position: absolute;
-    top: 20px;
+    bottom: 20px;
     left: 20px;
     background-color: white;
     border: 1px solid #ccc;
