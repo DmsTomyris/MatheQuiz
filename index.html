@@ -16,52 +16,66 @@
             }
         };
     </script>
+    <script type="module">
+
+        // Import the functions you need from the SDKs you need
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
+
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-analytics.js";
+
+        import { getDatabase } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-database.js"; // Importieren Sie die Datenbank
+
+
+        // Your web app's Firebase configuration
+
+        const firebaseConfig = {
+
+            apiKey: "AIzaSyA3ABt23YHJP6DsyZwnI2OT9jASSSq0Sd0",
+
+            authDomain: "mulmigermulm-cc7b7.firebaseapp.com",
+
+            projectId: "mulmigermulm-cc7b7",
+
+            storageBucket: "mulmigermulm-cc7b7.appspot.com",
+
+            messagingSenderId: "316103697436",
+
+            appId: "1:316103697436:web:aceee5de98801cfe77ebd9",
+
+            measurementId: "G-EZ5EWQ8ZQV"
+
+        };
+
+
+        // Initialize Firebase
+
+        const app = initializeApp(firebaseConfig);
+
+        const analytics = getAnalytics(app);
+
+        const database = getDatabase(app); // Initialisieren Sie die Datenbank
+
+
+        // Beispiel: Daten in die Firebase-Datenbank schreiben
+
+        function saveUser Interaction(data) {
+
+            const dbRef = database.ref('user-interactions');
+
+            dbRef.push(data);
+
+        }
+
+
+        // Beispielaufruf
+
+        saveUser Interaction({ action: 'page_view', timestamp: Date.now() });
+
+    </script>
 </head>
 <body>
     <h1>Welcome to the Math Quiz App</h1>
-
-    <script type="module">
-
-  // Import the functions you need from the SDKs you need
-
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
-
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-analytics.js";
-
-  // TODO: Add SDKs for Firebase products that you want to use
-
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-
-  // Your web app's Firebase configuration
-
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-
-  const firebaseConfig = {
-
-    apiKey: "AIzaSyA3ABt23YHJP6DsyZwnI2OT9jASSSq0Sd0",
-
-    authDomain: "mulmigermulm-cc7b7.firebaseapp.com",
-
-    projectId: "mulmigermulm-cc7b7",
-
-    storageBucket: "mulmigermulm-cc7b7.firebasestorage.app",
-
-    messagingSenderId: "316103697436",
-
-    appId: "1:316103697436:web:aceee5de98801cfe77ebd9",
-
-    measurementId: "G-EZ5EWQ8ZQV"
-
-  };
-
-
-  // Initialize Firebase
-
-  const app = initializeApp(firebaseConfig);
-
-  const analytics = getAnalytics(app);
-
-</script>
+    
 </body>
 </html>
