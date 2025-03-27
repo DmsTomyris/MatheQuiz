@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function saveTimeToFile() { 
         const fs = require('fs'); 
         const timeSpent = calculateTimeSpent(); 
-        const timeEntry = - ${new Date().toISOString()}: ${timeSpent / 1000} Sekunden verbracht\n;
+        const timeEntry = `- ${new Date().toISOString()}: ${timeSpent / 1000} Sekunden verbracht\n`;
         fs.appendFile('zeiten.md', timeEntry, (err) => {
         if (err) {
             console.error('Fehler beim Schreiben in die Datei:', err);} 
