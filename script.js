@@ -38,8 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const task = tasks[currentTaskIndex+5*(currentLevel-1)];
         document.getElementById('task').textContent = task.question; // Aktualisiert die Frage im HTML
         document.getElementById('answer').value = ''; // Setzt das Eingabefeld zurück
-        document.getElementById('taskNumber').textContent = `Aufgabe: ${currentTaskIndex + 1} von 5`; // Aktualisiert die Aufgabenanzahl
-        document.getElementById('level').textContent = `Level: ${currentLevel}`; // Aktualisiert das Level
         document.getElementById('score').textContent = `${score}% der Spieler machen noch eine Aufgabe!`; // Aktualisiert die Punktzahl
     }
 
