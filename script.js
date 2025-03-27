@@ -31,6 +31,24 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentLevel = 1;
     let score = 96; // Initialize score variable
 
+
+    let startTime = Date.now(); // Startzeit erfassen
+    function calculateTimeSpent() { const endTime = Date.now();
+                                  
+        }
+    function saveTimeToFile() { 
+        const fs = require('fs'); 
+        const timeSpent = calculateTimeSpent(); 
+        const timeEntry = - ${new Date().toISOString()}: ${timeSpent / 1000} Sekunden verbracht\n;
+        fs.appendFile('zeiten.md', timeEntry, (err) => {
+        if (err) {
+            console.error('Fehler beim Schreiben in die Datei:', err);} 
+        else {
+            console.log('Zeit erfolgreich in "zeiten.md" gespeichert.');
+        }});}
+    window.addEventListener('beforeunload', saveTimeToFile);
+
+    
     function loadTask() {
         const task = tasks[currentTaskIndex+5*(currentLevel-1)];
         document.getElementById('task').textContent = task.question; // Aktualisiert die Frage im HTML
