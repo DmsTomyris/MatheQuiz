@@ -13,12 +13,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Math Quiz App</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9fafb;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #111827;
+    }
+
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      color: white;
+      background-color: #2563eb;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #1e40af;
+    }
+  </style>
 
   <script>
     function handleSubmit(event) {
-      event.preventDefault(); // Verhindert Standardverhalten (Weiterleitung)
-      
-      // Formulardaten an Getform senden
+      event.preventDefault(); // Verhindert Standardverhalten
+
       const form = event.target;
       const formData = new FormData(form);
 
@@ -28,7 +88,6 @@
         headers: { 'Accept': 'application/json' }
       }).then(response => {
         if (response.ok) {
-          // Nach erfolgreicher Übertragung weiterleiten
           const randomNum = Math.random();
           if (randomNum < 1/3) {
               window.location.href = "Nudging1.html";
@@ -50,13 +109,12 @@
   <h1>Welcome to the Math Quiz App</h1>
 
   <form action="https://getform.io/f/bmdmdrga" method="POST" onsubmit="handleSubmit(event)">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name" required><br><br>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
 
-    <label for="age">Alter:</label><br>
-    <input type="number" id="age" name="age" required><br><br>
+    <label for="age">Alter:</label>
+    <input type="number" id="age" name="age" required>
 
-    <!-- Kein Redirect durch Getform -->
     <input type="hidden" name="_redirect" value="">
 
     <button type="submit">Senden</button>
