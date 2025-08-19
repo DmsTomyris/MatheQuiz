@@ -180,4 +180,8 @@ document.addEventListener('DOMContentLoaded', function () {
         sendDataToFormSubmit(); // Daten senden
         window.location.href = 'ende.html'; // Zur Startseite weiterleiten
     });
+    document.getElementById('closeButtonPanel').addEventListener('click', function () {
+        sendDataToFormSubmit(); // Daten senden
+        window.location.href = 'ende.html'; // Zur Startseite weiterleiten
+    });
 });
