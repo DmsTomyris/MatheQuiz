@@ -79,12 +79,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let totalTasksDone = 0;
     let wrongAnswers = 0;
     const formType = "Gamification";
-    let dataSent = false; // Flag, um mehrfaches Senden zu verhindern
+
 
     function sendDataToFormSubmit() {
-        if (dataSent) return;
-        dataSent = true;
-    
+        
         const formData = new FormData();
         formData.append("name", playerName);
         formData.append("age", playerAge);
@@ -168,10 +166,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('closeButton').addEventListener('click', function () {
         sendDataToFormSubmit(); // Daten senden
-        window.location.href = 'ende.html'; // Zur Startseite weiterleiten
+        //window.location.href = 'ende.html'; // Zur Startseite weiterleiten
     });
     document.getElementById('closeButtonPanel').addEventListener('click', function () {
         sendDataToFormSubmit(); // Daten senden
-        window.location.href = 'ende.html'; // Zur Startseite weiterleiten
+        //window.location.href = 'ende.html'; // Zur Startseite weiterleiten
     });
 });
