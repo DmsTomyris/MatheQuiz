@@ -74,16 +74,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let currentTaskIndex = 0;
     let currentLevel = 1;
-    let score = 96;
+    let score = 96; // Unterschied beibehalten
     let currentQuestionNumber = 1;
     let totalTasksDone = 0;
     let wrongAnswers = 0;
-    const formType = "Nudging";
+    const formType = "Nudging"; // Unterschied beibehalten
     let dataSent = false; // Flag, um mehrfaches Senden zu verhindern
 
     function sendDataToFormSubmit() {
-        if (dataSent) return; // Mehrfaches Senden verhindern
-        dataSent = true; // Markiere als gesendet
+        if (dataSent) return;
+        dataSent = true;
 
         const data = {
             name: playerName,
@@ -95,25 +95,24 @@ document.addEventListener('DOMContentLoaded', function () {
             total_tasks_done: totalTasksDone
         };
 
-        const formData = new URLSearchParams(data);
+        const jsonData = JSON.stringify(data);
 
-        fetch("https://formsubmit.co/ganuge.25@gmail.com", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: formData.toString()
-        })
-            .then(response => {
-                if (response.ok) {
-                    console.log("Data successfully sent.");
-                } else {
-                    console.error("Error sending data.");
-                }
+        // Bevorzugt: sendBeacon
+        if (navigator.sendBeacon) {
+            const blob = new Blob([jsonData], { type: "application/json" });
+            navigator.sendBeacon("https://formsubmit.co/ganuge.25@gmail.com", blob);
+            console.log("Data sent via sendBeacon.");
+        } else {
+            // Fallback: fetch mit keepalive
+            fetch("https://formsubmit.co/ganuge.25@gmail.com", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: jsonData,
+                keepalive: true
             })
-            .catch(error => {
-                console.error("Network error:", error);
-            });
+            .then(response => console.log("Data sent via fetch keepalive:", response.ok))
+            .catch(error => console.error("Error sending data:", error));
+        }
     }
 
     function loadTask() {
@@ -182,12 +181,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Bestätigungsfenster beim Schließen der Seite
     window.addEventListener("beforeunload", function (event) {
-        // Standardtext wird in modernen Browsern ignoriert
         event.preventDefault();
         sendDataToFormSubmit();
         event.returnValue = ""; // zwingend für Chrome, Firefox etc.
-        
-    }); 
+    });
 
     document.getElementById('closeButton').addEventListener('click', function () {
         sendDataToFormSubmit(); // Daten senden

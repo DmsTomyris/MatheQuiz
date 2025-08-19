@@ -81,8 +81,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let dataSent = false; // Flag, um mehrfaches Senden zu verhindern
 
     function sendDataToFormSubmit() {
-        if (dataSent) return; // Mehrfaches Senden verhindern
-        dataSent = true; // Markiere als gesendet
+        if (dataSent) return;
+        dataSent = true;
 
         const data = {
             name: playerName,
@@ -93,25 +93,30 @@ document.addEventListener('DOMContentLoaded', function () {
             total_tasks_done: totalTasksDone
         };
 
-        const formData = new URLSearchParams(data);
+        const encodedData = new URLSearchParams(data).toString();
 
-        fetch("https://formsubmit.co/ganuge.25@gmail.com", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: formData.toString()
-        })
+        if (navigator.sendBeacon) {
+            // sendBeacon Variante
+            const blob = new Blob([encodedData], { type: "application/x-www-form-urlencoded" });
+            navigator.sendBeacon("https://formsubmit.co/ganuge.25@gmail.com", blob);
+            console.log("Data sent via sendBeacon.");
+        } else {
+            // Fallback: fetch + keepalive
+            fetch("https://formsubmit.co/ganuge.25@gmail.com", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: encodedData,
+                keepalive: true
+            })
             .then(response => {
                 if (response.ok) {
-                    console.log("Data successfully sent.");
+                    console.log("Data successfully sent via fetch keepalive.");
                 } else {
-                    console.error("Error sending data.");
+                    console.error("Error sending data via fetch keepalive.");
                 }
             })
-            .catch(error => {
-                console.error("Network error:", error);
-            });
+            .catch(error => console.error("Network error:", error));
+        }
     }
 
     function loadTask() {
@@ -124,8 +129,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const userAnswer = parseInt(document.getElementById('answer').value);
         const correctAnswer = tasks[currentTaskIndex + (currentLevel - 1) * 5].answer;
         const resultElement = document.getElementById('result');
-        const levelUpPanel = document.getElementById('levelUpPanel');
-        const continueButton = document.getElementById('continueButton');
 
         totalTasksDone++;
 
@@ -151,8 +154,6 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             resultElement.textContent += ' Alle Aufgaben sind erledigt!';
             document.getElementById('submit').disabled = true;
-
-            // Fortschritt sofort senden
             sendDataToFormSubmit();
         }
     });
@@ -161,15 +162,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Bestätigungsfenster beim Schließen der Seite
     window.addEventListener("beforeunload", function (event) {
-        // Standardtext wird in modernen Browsern ignoriert
         event.preventDefault();
         sendDataToFormSubmit();
-        event.returnValue = ""; // zwingend für Chrome, Firefox etc.
-        
-    }); 
-    document.getElementById('closeButton').addEventListener('click', function () {
-        sendDataToFormSubmit(); // Daten senden
-        window.location.href = 'index.html'; // Zur Startseite weiterleiten
+        event.returnValue = ""; // erforderlich für Dialog in Chrome/Firefox
     });
-    
+
+    document.getElementById('closeButton').addEventListener('click', function () {
+        sendDataToFormSubmit();
+        window.location.href = 'index.html';
+    });
 });
