@@ -83,42 +83,26 @@ document.addEventListener('DOMContentLoaded', function () {
     function sendDataToFormSubmit() {
         if (dataSent) return;
         dataSent = true;
-
-        const data = {
-            name: playerName,
-            age: playerAge,
-            reached_task: currentQuestionNumber,
-            wrong_answers: wrongAnswers,
-            form_type: formType,
-            total_tasks_done: totalTasksDone
-        };
-
-        const encodedData = new URLSearchParams(data).toString();
-
-        if (navigator.sendBeacon) {
-            // sendBeacon Variante
-            const blob = new Blob([encodedData], { type: "application/x-www-form-urlencoded" });
-            navigator.sendBeacon("https://formsubmit.co/ganuge.25@gmail.com", blob);
-            console.log("Data sent via sendBeacon.");
-        } else {
-            // Fallback: fetch + keepalive
-            fetch("https://formsubmit.co/ganuge.25@gmail.com", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: encodedData,
-                keepalive: true
-            })
-            .then(response => {
-                if (response.ok) {
-                    console.log("Data successfully sent via fetch keepalive.");
-                } else {
-                    console.error("Error sending data via fetch keepalive.");
-                }
-            })
-            .catch(error => console.error("Network error:", error));
-        }
+    
+        const formData = new FormData();
+        formData.append("name", playerName);
+        formData.append("age", playerAge);
+        formData.append("reached_task", currentQuestionNumber);
+        formData.append("wrong_answers", wrongAnswers);
+        formData.append("form_type", formType);
+        formData.append("score", score);
+        formData.append("total_tasks_done", totalTasksDone);
+    
+        // Mit fetch senden
+        fetch("https://formsubmit.co/YOUR_EMAIL_HERE", {
+            method: "POST",
+            body: formData,
+            keepalive: true
+        })
+        .then(response => console.log("Data sent via FormSubmit:", response.ok))
+        .catch(error => console.error("Error sending data:", error));
     }
-
+    
     function loadTask() {
         const task = tasks[currentTaskIndex + 5 * (currentLevel - 1)];
         document.getElementById('task').textContent = task.question;

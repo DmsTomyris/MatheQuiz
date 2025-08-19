@@ -84,36 +84,26 @@ document.addEventListener('DOMContentLoaded', function () {
     function sendDataToFormSubmit() {
         if (dataSent) return;
         dataSent = true;
-
-        const data = {
-            name: playerName,
-            age: playerAge,
-            reached_task: currentQuestionNumber,
-            wrong_answers: wrongAnswers,
-            form_type: formType,
-            score: score,
-            total_tasks_done: totalTasksDone
-        };
-
-        const jsonData = JSON.stringify(data);
-
-        // Bevorzugt: sendBeacon
-        if (navigator.sendBeacon) {
-            const blob = new Blob([jsonData], { type: "application/json" });
-            navigator.sendBeacon("https://formsubmit.co/ganuge.25@gmail.com", blob);
-            console.log("Data sent via sendBeacon.");
-        } else {
-            // Fallback: fetch mit keepalive
-            fetch("https://formsubmit.co/ganuge.25@gmail.com", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: jsonData,
-                keepalive: true
-            })
-            .then(response => console.log("Data sent via fetch keepalive:", response.ok))
-            .catch(error => console.error("Error sending data:", error));
-        }
+    
+        const formData = new FormData();
+        formData.append("name", playerName);
+        formData.append("age", playerAge);
+        formData.append("reached_task", currentQuestionNumber);
+        formData.append("wrong_answers", wrongAnswers);
+        formData.append("form_type", formType);
+        formData.append("score", score);
+        formData.append("total_tasks_done", totalTasksDone);
+    
+        // Mit fetch senden
+        fetch("https://formsubmit.co/YOUR_EMAIL_HERE", {
+            method: "POST",
+            body: formData,
+            keepalive: true
+        })
+        .then(response => console.log("Data sent via FormSubmit:", response.ok))
+        .catch(error => console.error("Error sending data:", error));
     }
+    
 
     function loadTask() {
         const task = tasks[currentTaskIndex + 5 * (currentLevel - 1)];
