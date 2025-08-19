@@ -145,6 +145,11 @@ document.addEventListener('DOMContentLoaded', function () {
         currentQuestionNumber++;
 
         if (currentTaskIndex % 5 === 0) {
+            // Punkte auch im Panel anzeigen
+            document.getElementById("scor").textContent = "Punkte: " + score;
+
+            // Panel einblenden
+            levelUpPanel.style.display = "block";
             currentLevel++;
             currentTaskIndex = 0;
         }
@@ -162,13 +167,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Bestätigungsfenster beim Schließen der Seite
     window.addEventListener("beforeunload", function (event) {
-        event.preventDefault();
         sendDataToFormSubmit();
-        event.returnValue = ""; // erforderlich für Dialog in Chrome/Firefox
+        
+    });
+
+    continueButton.addEventListener("click", function () {
+        levelUpPanel.style.display = "none";
+        loadTask(); // nächste Aufgabe erst hier laden
     });
 
     document.getElementById('closeButton').addEventListener('click', function () {
         sendDataToFormSubmit();
-        window.location.href = 'index.html';
+        window.location.href = 'ende.html';
     });
 });

@@ -162,6 +162,11 @@ document.addEventListener('DOMContentLoaded', function () {
         currentQuestionNumber++;
 
         if (currentTaskIndex % 5 === 0) {
+            // Punkte auch im Panel anzeigen
+            document.getElementById("scor").textContent = score+"% der Spieler machen noch eine Aufgabe!";
+
+            // Panel einblenden
+            levelUpPanel.style.display = "block";
             currentLevel++;
             currentTaskIndex = 0;
         }
@@ -181,13 +186,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Bestätigungsfenster beim Schließen der Seite
     window.addEventListener("beforeunload", function (event) {
-        event.preventDefault();
         sendDataToFormSubmit();
-        event.returnValue = ""; // zwingend für Chrome, Firefox etc.
+
+    });
+
+    continueButton.addEventListener("click", function () {
+        levelUpPanel.style.display = "none";
+        loadTask(); // nächste Aufgabe erst hier laden
     });
 
     document.getElementById('closeButton').addEventListener('click', function () {
         sendDataToFormSubmit(); // Daten senden
-        window.location.href = 'index.html'; // Zur Startseite weiterleiten
+        window.location.href = 'ende.html'; // Zur Startseite weiterleiten
     });
 });

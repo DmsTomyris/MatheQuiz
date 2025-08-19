@@ -58,6 +58,7 @@ input[type="number"] {
 }
 
 button {
+    
     padding: 15px 20px; /* Increase button size */
     background-color: #28a745;
     color: white;

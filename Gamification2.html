@@ -22,16 +22,26 @@
       
     <input type="number" id="answer" placeholder="Geben Sie Ihre Antwort ein"><br>
     <div id="points">
-        <p id="score" style="font-size: 24px; margin-top: 20px; text-align: right;">Punkte: <span id="scoreValue"></span>0</span></p>
+        <p id="score" style="font-size: 24px; margin-top: 20px; text-align: right;">Punkte: <span id="scoreValue">0</span></p>
     </div>
 
-    <button id="submit">Überprüfen</button>
+    <button id="submit">Lösung Überprüfen</button>
     <div id="levelUpPanel" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); color: white; text-align: center; padding-top: 20%;">
         <h2>Willst du ins nächste Level?</h2>
         <p id="scor">Punkte: 0</p>
         <button id="continueButton">Weiter spielen</button>
+        <div style="text-align: center; margin: 20px 0;">
+            <button id="closeButton">Umfrage beenden</button>
+        </div>
     </div>
     <p id="result"></p>
+
+    <!-- Close-Button direkt hier -->
+    <div style="text-align: center; margin: 20px 0;">
+        <button id="closeButton">Umfrage beenden</button>
+    </div>
+
+
 
     <div id="scoreboard">
         <h2>Scoreboard</h2>
@@ -43,7 +53,7 @@
             <p>Jojo: 95</p>
         </ul>
     </div>
-    <button id="closeButton" style="position: fixed; bottom: 20px; right: 20px;">Schließen</button>
+
     <script src="script2.js" defer></script>
     
 </body>
