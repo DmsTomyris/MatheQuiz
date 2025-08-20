@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
         formData.append("total_tasks_done", totalTasksDone);
     
         // Mit fetch senden
-        fetch("https://formsubmit.co/ganuge.25@gmail.com", {
+        fetch("https://formsubmit.co/8285afc7daf819da1887c55e23317ab8", {
             method: "POST",
             body: formData,
             keepalive: true
@@ -169,3 +169,4 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'ende.html'; // Zur Startseite weiterleiten
     });
 });
+
