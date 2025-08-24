@@ -4,73 +4,105 @@ document.addEventListener('DOMContentLoaded', function () {
     const playerAge = params.get("age") || "0";
 
     const tasks = [
-        { question: '3 * 4 + 3?', answer: 15 },
-        { question: '5 * 5 - 1?', answer: 24 },
-        { question: '12 - 4 * 3?', answer: 0 },
-        { question: '15 + 6 * 2?', answer: 27 },
-        { question: '18 ÷ 3 + 5 * 2?', answer: 16 },
-        { question: '10 + 5 * 2?', answer: 20 },
-        { question: '25 - 9 ÷ 3?', answer: 22 },
-        { question: '6^2 - 5?', answer: 31 },
-        { question: '4 * 10 - 3?', answer: 37 },
-        { question: '33 + 2 ÷ 2?', answer: 34 },
-
-        // Easy tasks
-        { question: '3 + 4?', answer: 7 },
-        { question: '5 * 2?', answer: 10 },
-        { question: '12 - 8?', answer: 4 },
-        { question: '15 ÷ 3?', answer: 5 },
-        { question: '6 + 7?', answer: 13 },
-
-        // Slightly harder tasks
-        { question: '8 * 3 - 5?', answer: 19 },
-        { question: '20 ÷ 4 + 6?', answer: 11 },
-        { question: '9 * 2 + 7?', answer: 25 },
-        { question: '18 - 6 ÷ 2?', answer: 15 },
-        { question: '10 + 5 * 2?', answer: 20 },
-
-        // Medium difficulty
-        { question: '25 - 9 ÷ 3?', answer: 22 },
-        { question: '6^2 - 5?', answer: 31 },
-        { question: '4 * 10 - 3?', answer: 37 },
-        { question: '33 + 2 ÷ 2?', answer: 34 },
-        { question: '(8 + 4) * 2?', answer: 24 },
-
-        // Harder tasks
-        { question: '50 ÷ (5 + 5)?', answer: 5 },
-        { question: '7 * (8 - 3)?', answer: 35 },
-        { question: '9^2 - 20?', answer: 61 },
-        { question: '(15 ÷ 3) + 4 * 2?', answer: 11 },
-        { question: '20 - (5 * 3)?', answer: 5 },
-
-        // Advanced tasks
-        { question: '8 * (7 + 2) - 10?', answer: 62 },
-        { question: '50 ÷ (5 + 5) + 6?', answer: 11 },
-        { question: '(12 * 3) - (15 ÷ 3)?', answer: 33 },
-        { question: '18 ÷ (2 + 1) + 7?', answer: 13 },
-        { question: '(25 + 5) * 2?', answer: 60 },
-
-        // Very advanced tasks
-        { question: '30 - (6 ÷ 2) + 8?', answer: 35 },
-        { question: '40 ÷ (8 ÷ 2) + 9?', answer: 14 },
-        { question: '(6 * 6) - (10 ÷ 2)?', answer: 31 },
-        { question: '14 + (7 * 3) - 5?', answer: 30 },
-        { question: '(21 ÷ 3) + (8 * 2)?', answer: 25 },
-
-        // Expert-level tasks
-        { question: '10 * (4 - 2) + 15?', answer: 35 },
-        { question: '(9 * 5) + (6 ÷ 2)?', answer: 48 },
-        { question: '(16 ÷ 4) + (12 * 2)?', answer: 28 },
-        { question: '(8 * 8) - (20 ÷ 4)?', answer: 60 },
-        { question: '50 - (10 ÷ 2) + (5 * 3)?', answer: 60 },
-
-        // Challenge tasks
-        { question: '(7 * 7) + (3 * 2)?', answer: 55 },
-        { question: '(18 ÷ 3) + (10 * 2)?', answer: 26 },
-        { question: '(12 * 2) - (8 ÷ 4)?', answer: 23 },
-        { question: '(25 + 15) ÷ (5 + 5)?', answer: 4 },
-        { question: '(30 - 9) ÷ (3 + 3)?', answer: 3 }
-    ];
+        { question: '5 + 3', answer: 8 },
+        { question: '12 - 7', answer: 5 },
+        { question: '4 × 6', answer: 24 },
+        { question: '28 ÷ 7', answer: 4 },
+        { question: '9 + 6 - 4', answer: 11 },
+        { question: '15 ÷ 3 + 2', answer: 7 },
+        { question: '(5 × 2) - 3', answer: 7 },
+        { question: '20 ÷ 4 + 7', answer: 12 },
+        { question: '(3 + 6) × 2', answer: 18 },
+      
+        { question: '2^2', answer: 4 },
+        { question: '√49', answer: 7 },
+        { question: '5^2 - 9', answer: 16 },
+        { question: '√36 + 8', answer: 14 },
+        { question: '(3^2) + 4', answer: 13 },
+        { question: '10^2 ÷ 5', answer: 20 },
+        { question: '√81 - 2', answer: 7 },
+        { question: '2^3 + 7', answer: 15 },
+        { question: '(25 ÷ 5)^2', answer: 25 },
+        { question: '√100 + 3', answer: 13 },
+      
+        { question: 'x + 5 = 12', answer: 7 },
+        { question: '2x = 18', answer: 9 },
+        { question: 'x - 4 = 9', answer: 13 },
+        { question: '3x + 2 = 11', answer: 3 },
+        { question: '(x ÷ 2) + 3 = 7', answer: 8 },
+        { question: '4x - 1 = 15', answer: 4 },
+        { question: '√x = 5', answer: 25 },
+        { question: '(x ÷ 3) + 2 = 10', answer: 24 },
+        { question: '(x + 5) ÷ 2 = 7', answer: 9 },
+        { question: '2x + 3 = 17', answer: 7 },
+      
+        { question: '(x - 2) × 3 = 12', answer: 6 },
+        { question: '(x ÷ 4) + 6 = 10', answer: 16 },
+        { question: '5x - 7 = 18', answer: 5 },
+        { question: '(2x + 4) ÷ 3 = 6', answer: 7 },
+        { question: '(x ÷ 2) - 3 = 5', answer: 16 },
+        { question: '√(x + 16) = 6', answer: 20 },
+        { question: '7x + 3 = 24', answer: 3 },
+        { question: '(x - 5) ÷ 2 = 7', answer: 19 },
+        { question: '(x ÷ 3) - 2 = 4', answer: 18 },
+        { question: '4x - 10 = 14', answer: 6 },
+        { question: '√(2x + 1) = 5', answer: 12 },
+        { question: '6x + 2 = 38', answer: 6 },
+        { question: '(x ÷ 5) + 7 = 9', answer: 10 },
+        { question: '(2x - 4) ÷ 2 = 10', answer: 12 },
+        { question: '2x - 8 = 0', answer: 4 },
+        { question: '(x ÷ 2) - 3 = 8', answer: 22 },
+        { question: '(3x + 6) ÷ 2 = 15', answer: 8 },
+        { question: '10x - 5 = 95', answer: 10 },
+      
+        { question: '(x ÷ 2) + 5 = 11', answer: 12 },
+        { question: '3x - 12 = 0', answer: 4 },
+        { question: '5x - (2x + 1) = 11', answer: 4 },
+        { question: '4(x - 3) = 20', answer: 8 },
+        { question: '√(3x + 1) = 10', answer: 33 },
+        { question: '(x ÷ 3) + 2 = 8', answer: 18 },
+        { question: '(2x + 5) - (x - 3) = 10', answer: 2 },
+        { question: '√(x + 9) - 2 = 4', answer: 7 },
+        { question: '(x ÷ 5) - 3 = 2', answer: 25 },
+        { question: '(x - 7) ÷ 2 = 9', answer: 25 },
+        { question: '(2x + 1) ÷ 3 = 5', answer: 7 },
+        { question: '√(4x - 4) = 8', answer: 17 },
+        { question: '5(x - 2) = 3x + 4', answer: 7 },
+        { question: '2x + 7 = 21', answer: 7 },
+      
+        { question: '3x - 4 = 5', answer: 3 },
+        { question: '√(x + 25) = 10', answer: 75 },
+        { question: '(2x + 5) ÷ 2 = 10', answer: 7.5 },
+        { question: '(x ÷ 4) - (x ÷ 8) = 3', answer: 24 },
+        { question: '√(2x - 8) = 6', answer: 22 },
+        { question: '(x - 3) ÷ 2 = 7', answer: 17 },
+        { question: 'x + 2x - 8 = 0', answer: 8/3 },
+        { question: '(x ÷ 3) + 4 = 13', answer: 27 },
+        { question: '√(5x - 9) = 6', answer: 9 },
+        { question: '(2x - 9) ÷ 3 = 7', answer: 15 },
+        { question: '(2x + 1) ÷ 5 = 7', answer: 17 },
+        { question: '√(3x - 12) = 6', answer: 16 },
+        { question: '(x - 4) ÷ 2 = 6', answer: 16 },
+        { question: '(x - 2x) ÷ 2 = 8', answer: -16 },
+        { question: '4x - 25 = 0', answer: 25/4 },
+        { question: '(2x - 3) + 1 = 17', answer: 9.5 },
+        { question: '√(x - 16) = 5', answer: 41 },
+        { question: '(x + x) ÷ 2 = 10', answer: 10 },
+        { question: '3x - 5 = 10', answer: 5 },
+        { question: '(x - 7) ÷ 2 = 10', answer: 27 },
+      
+        { question: 'x + 2 = 49', answer: 47 },
+        { question: '√(x + 4) = 10', answer: 96 },
+        { question: '(x - 2) ÷ 3 = 7', answer: 23 },
+        { question: 'x + 3x - 28 = 0', answer: 7 },
+        { question: '(2x ÷ 3) - 4 = 5', answer: 27/2 },
+        { question: '√(2x + 8) = 10', answer: 46 },
+        { question: 'x - 15 = 0', answer: 15 },
+        { question: '(3x ÷ 2) - 6 = 3', answer: 6 },
+        { question: '(x + 2) ÷ 2 = 5', answer: 8 },
+        { question: '√(x - 10) = 4', answer: 26 },
+        { question: '(x + x - 6) ÷ 2 = 10', answer: 13 }
+      ];
 
     let currentTaskIndex = 0;
     let currentLevel = 1;
@@ -121,7 +153,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         totalTasksDone++;
 
-        score -= Math.floor(Math.random() * 7) + 1;
+        score -= Math.floor(Math.random() * 5) + 1;
+        if (score < 0) score = 0; // Sicherstellen, dass der Score nicht negativ wird
         const scoreElement = document.getElementById('score');
         scoreElement.classList.add('fadeIn');
         scoreElement.classList.remove('fadeIn');
