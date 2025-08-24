@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
 
     function loadTask() {
-        const task = tasks[currentTaskIndex + 5 * (currentLevel - 1)];
+        const task = tasks[currentTaskIndex + 2 * (currentLevel - 1)];
         document.getElementById('task').textContent = task.question;
         document.getElementById('answer').value = '';
         document.getElementById('score').textContent = `${score}% der Spieler machen noch eine Aufgabe!`;
@@ -227,4 +227,5 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'ende.html'; // Zur Startseite weiterleiten
     });
 });
+
 
