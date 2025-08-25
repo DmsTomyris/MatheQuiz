@@ -161,11 +161,6 @@ document.addEventListener('DOMContentLoaded', function () {
         currentQuestionNumber++;
 
         if (currentTaskIndex % 5 === 0) {
-            // Punkte auch im Panel anzeigen
-            document.getElementById("scor").textContent = "Punkte: " + score;
-
-            // Panel einblenden
-            levelUpPanel.style.display = "block";
             currentLevel++;
             currentTaskIndex = 0;
         }
@@ -201,4 +196,5 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'ende.html'; // Zur Startseite weiterleiten
     });
 });
+
 
