@@ -122,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function () {
         formData.append("reached_task", currentQuestionNumber);
         formData.append("wrong_answers", wrongAnswers);
         formData.append("form_type", formType);
-        formData.append("score", score);
         formData.append("total_tasks_done", totalTasksDone);
     
         // Mit fetch senden
@@ -196,5 +195,6 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'ende.html'; // Zur Startseite weiterleiten
     });
 });
+
 
 
