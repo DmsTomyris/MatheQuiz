@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentQuestionNumber = 1;
     let totalTasksDone = 0;
     let wrongAnswers = 0;
-    const formType = "Gamification";
+    const formType = "Gegenprobe";
     let dataSent = false; // Flag, um mehrfaches Senden zu verhindern
 
     function sendDataToFormSubmit() {
@@ -195,6 +195,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'ende.html'; // Zur Startseite weiterleiten
     });
 });
+
 
 
 
