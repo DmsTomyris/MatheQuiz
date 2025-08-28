@@ -72,20 +72,20 @@ document.addEventListener('DOMContentLoaded', function () {
       
         { question: '3x - 4 = 5', answer: 3 },
         { question: '√(x + 25) = 10', answer: 75 },
-        { question: '(2x + 5) ÷ 2 = 10', answer: 7.5 },
+        { question: '(2x + 6) ÷ 2 = 10', answer: 7 },
         { question: '(x ÷ 4) - (x ÷ 8) = 3', answer: 24 },
         { question: '√(2x - 8) = 6', answer: 22 },
         { question: '(x - 3) ÷ 2 = 7', answer: 17 },
-        { question: 'x + 2x - 8 = 0', answer: 8/3 },
+        { question: '2x - 8 = 0', answer: 4 },
         { question: '(x ÷ 3) + 4 = 13', answer: 27 },
         { question: '√(5x - 9) = 6', answer: 9 },
         { question: '(2x - 9) ÷ 3 = 7', answer: 15 },
         { question: '(2x + 1) ÷ 5 = 7', answer: 17 },
         { question: '√(3x - 12) = 6', answer: 16 },
         { question: '(x - 4) ÷ 2 = 6', answer: 16 },
-        { question: '(x - 2x) ÷ 2 = 8', answer: -16 },
-        { question: '4x - 25 = 0', answer: 25/4 },
-        { question: '(2x - 3) + 1 = 17', answer: 9.5 },
+        { question: '2x ÷ 2 = 10', answer: 10 },
+        { question: 'x - 25 = 0', answer: 25 },
+        { question: '(3x - 3) + 2 = 17', answer: 6 },
         { question: '√(x - 16) = 5', answer: 41 },
         { question: '(x + x) ÷ 2 = 10', answer: 10 },
         { question: '3x - 5 = 10', answer: 5 },
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { question: '√(x + 4) = 10', answer: 96 },
         { question: '(x - 2) ÷ 3 = 7', answer: 23 },
         { question: 'x + 3x - 28 = 0', answer: 7 },
-        { question: '(2x ÷ 3) - 4 = 5', answer: 27/2 },
+        { question: '(4x ÷ 3) - 4 = 0', answer: 3 },
         { question: '√(2x + 8) = 10', answer: 46 },
         { question: 'x - 15 = 0', answer: 15 },
         { question: '(3x ÷ 2) - 6 = 3', answer: 6 },
@@ -227,6 +227,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'ende.html'; // Zur Startseite weiterleiten
     });
 });
+
 
 
 
