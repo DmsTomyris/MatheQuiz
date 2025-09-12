@@ -101,7 +101,58 @@ document.addEventListener('DOMContentLoaded', function () {
         { question: '(3x ÷ 2) - 6 = 3', answer: 6 },
         { question: '(x + 2) ÷ 2 = 5', answer: 8 },
         { question: '√(x - 10) = 4', answer: 26 },
-        { question: '(x + x - 6) ÷ 2 = 10', answer: 13 }
+        { question: '(x + x - 6) ÷ 2 = 10', answer: 13 },
+          { "question": "x + 7 = 20", "answer": 13 },
+  { "question": "2x - 4 = 10", "answer": 7 },
+  { "question": "√(x + 9) = 6", "answer": 27 },
+  { "question": "x ÷ 3 + 5 = 9", "answer": 12 },
+  { "question": "(x - 4) ÷ 2 = 7", "answer": 18 },
+  { "question": "√(3x - 2) = 10", "answer": 34 },
+  { "question": "x - 8 = 25", "answer": 33 },
+  { "question": "(2x + 4) ÷ 3 = 8", "answer": 10 },
+  { "question": "√(x + 16) = 11", "answer": 105 },
+  { "question": "x ÷ 2 - 5 = 1", "answer": 12 },
+  { "question": "x + 12 = 30", "answer": 18 },
+  { "question": "(x - 6) ÷ 3 = 5", "answer": 21 },
+  { "question": "√(x - 5) = 9", "answer": 86 },
+  { "question": "2x + 7 = 19", "answer": 6 },
+  { "question": "(x + 8) ÷ 4 = 6", "answer": 16 },
+  { "question": "√(2x + 1) = 7", "answer": 24 },
+  { "question": "x - 20 = 17", "answer": 37 },
+  { "question": "3x ÷ 2 + 1 = 10", "answer": 6 },
+  { "question": "(x + 4) ÷ 3 = 9", "answer": 23 },
+  { "question": "√(x + 25) = 12", "answer": 119 },
+  { "question": "x ÷ 4 - 2 = 5", "answer": 28 },
+  { "question": "2x - 11 = 3", "answer": 7 },
+  { "question": "(x - 9) ÷ 5 = 4", "answer": 29 },
+  { "question": "√(4x + 1) = 9", "answer": 20 },
+  { "question": "x + 30 = 55", "answer": 25 },
+  { "question": "(x + 10) ÷ 2 = 13", "answer": 16 },
+  { "question": "√(x - 21) = 8", "answer": 85 },
+  { "question": "x ÷ 6 + 2 = 9", "answer": 42 },
+  { "question": "(3x - 6) ÷ 3 = 4", "answer": 6 },
+  { "question": "√(5x - 20) = 10", "answer": 24 },
+  { "question": "x - 11 = 0", "answer": 11 },
+  { "question": "2x + 3 = 25", "answer": 11 },
+  { "question": "(x + 2) ÷ 4 = 5", "answer": 18 },
+  { "question": "√(x + 7) = 14", "answer": 189 },
+  { "question": "x ÷ 2 - 3 = 17", "answer": 40 },
+  { "question": "(x - 1) ÷ 2 = 10", "answer": 21 },
+  { "question": "√(2x + 4) = 12", "answer": 70 },
+  { "question": "x + 40 = 90", "answer": 50 },
+  { "question": "3x ÷ 2 - 5 = 13", "answer": 12 },
+  { "question": "(x + 6) ÷ 3 = 14", "answer": 36 },
+  { "question": "√(x - 15) = 11", "answer": 136 },
+  { "question": "x ÷ 5 + 4 = 10", "answer": 30 },
+  { "question": "(x - 4) ÷ 2 = 20", "answer": 44 },
+  { "question": "√(x + 10) = 18", "answer": 314 },
+  { "question": "2x - 9 = 7", "answer": 8 },
+  { "question": "(x + 30) ÷ 6 = 9", "answer": 24 },
+  { "question": "√(x + 5) = 13", "answer": 164 },
+  { "question": "x ÷ 7 - 2 = 6", "answer": 56 },
+  { "question": "3x ÷ 2 + 4 = 19", "answer": 10 },
+  { "question": "(x - 12) ÷ 3 = 11", "answer": 45 }
+
       ];
 
     let currentTaskIndex = 0;
@@ -227,6 +278,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'ende.html'; // Zur Startseite weiterleiten
     });
 });
+
 
 
 
