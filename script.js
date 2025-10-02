@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { question: '√(3x + 1) = 10', answer: 33 },
         { question: '(x ÷ 3) + 2 = 8', answer: 18 },
         { question: '(2x + 5) - (x - 3) = 10', answer: 2 },
-        { question: '√(x + 9) - 2 = 4', answer: 7 },
+        { question: '√(x + 9) - 2 = 4', answer: 27 },
         { question: '(x ÷ 5) - 3 = 2', answer: 25 },
         { question: '(x - 7) ÷ 2 = 9', answer: 25 },
         { question: '(2x + 1) ÷ 3 = 5', answer: 7 },
@@ -278,6 +278,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'ende.html'; // Zur Startseite weiterleiten
     });
 });
+
 
 
 
